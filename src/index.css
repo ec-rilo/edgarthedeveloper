@@ -12,9 +12,14 @@
   /* Colors */
   --clr-onyx: #101010;
   --clr-gainsboro: #dddddd;
+  --clr-gainsboro-light: rgba(221, 221, 221, 0.2);
   --clr-amber: #ffbf00;
 
   /* Fonts */
   --fnt-regular: 'Lato-Regular';
   --fnt-bld: 'Lato-Bold';
+}
+
+body {
+  background-color: var(--clr-onyx);
 }
