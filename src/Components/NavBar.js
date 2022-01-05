@@ -139,6 +139,7 @@ const StyledHamBtnContainer = styled(HamBtnContainer)`
   gap: 20px;
   color: var(--clr-gainsboro);
   align-items: center;
+  cursor: pointer;
 `;
 
 const Logo = ({ className }) => {
