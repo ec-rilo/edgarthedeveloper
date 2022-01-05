@@ -1,8 +1,59 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import device from '../assets/data/deviceSizes';
 
+const DropDownContent = ({ className }) => {
+  return (
+    <ul className={className}>
+      <li>WORK</li>
+      <li>ABOUT</li>
+      <li>CONTACT</li>
+      <li>CV</li>
+    </ul>
+  );
+};
+
+const StyledDropDownContent = styled(DropDownContent)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  color: var(--clr-gainsboro);
+`;
+
 /* Mobile - Tablet Components */
+const DropDownMenu = ({ className, hamIsActive }) => {
+  return (
+    <div className={className}>
+      <StyledDropDownContent />
+    </div>
+  );
+};
+
+const StyledDropDownMenu = styled(DropDownMenu)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  top: 100%;
+  z-index: -1;
+  top: -100%;
+  transition: top 0.3s ease-in-out;
+
+  ${({ hamIsActive }) => {
+    if (hamIsActive) {
+      return `
+        top: 100%;
+      `;
+    } else {
+      return `
+        top: -100%;
+      `;
+    }
+  }}
+`;
 
 const HamLayer = styled.div`
   background-color: var(--clr-gainsboro);
@@ -101,13 +152,16 @@ const StyledHamTextContainer = styled(HamTextContainer)`
   overflow: hidden;
 `;
 
-const HamBtnContainer = ({ className }) => {
+const HamBtnContainer = ({ className, setHamIsActive }) => {
   const [isActive, setIsActive] = useState(false);
 
-  // create a function called toggle ham btn
   const toggleHamBtn = (val) => {
     val === true ? setIsActive(false) : setIsActive(true);
   };
+
+  useEffect(() => {
+    setHamIsActive(isActive);
+  }, [isActive, setHamIsActive]);
 
   return (
     <div className={className} onClick={() => toggleHamBtn(isActive)}>
@@ -171,21 +225,26 @@ const StyledLogo = styled(Logo)`
 `;
 
 const Nav = ({ className }) => {
+  const [hamIsActive, setHamIsActive] = useState(false);
+
   return (
     <nav className={className}>
       <StyledLogo />
       <StyledMenuContainer />
-      <StyledHamBtnContainer />
+      <StyledHamBtnContainer setHamIsActive={setHamIsActive} />
+      <StyledDropDownMenu hamIsActive={hamIsActive} />
     </nav>
   );
 };
 
 const StyledNav = styled(Nav)`
+  position: relative;
   display: flex;
   align-items: center;
   font-family: var(--fnt-regular);
   height: 100px;
-
   justify-content: space-between;
+  background-color: var(--clr-onyx);
+  z-index: auto;
 `;
 export default StyledNav;
