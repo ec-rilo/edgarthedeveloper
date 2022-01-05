@@ -91,7 +91,7 @@ const StyledDropDownMenu = styled(DropDownMenu)`
   justify-content: center;
   position: absolute;
   width: 100%;
-  height: 200px;
+  padding-bottom: 20px;
   top: 100%;
   z-index: -1;
   top: -100%;
