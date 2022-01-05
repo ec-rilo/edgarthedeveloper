@@ -52,9 +52,9 @@ const LongHamLayer = styled.div`
   }}
 `;
 
-const HamburgerBtn = ({ className, toggleHamBtn, isActive }) => {
+const HamburgerBtn = ({ className, isActive }) => {
   return (
-    <div className={className} onClick={() => toggleHamBtn(isActive)}>
+    <div className={className}>
       <HamLayer isActive={isActive}></HamLayer>
       <LongHamLayer isActive={isActive}></LongHamLayer>
       <HamLayer isActive={isActive}></HamLayer>
@@ -70,6 +70,54 @@ const StyledHamburgerBtn = styled(HamburgerBtn)`
   direction: rtl;
 `;
 
+const MenuBtn = styled.p`
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  transition: top 0.2s ease;
+
+  ${({ isActive }) => {
+    if (isActive) {
+      return 'top: -150%';
+    }
+  }}
+`;
+
+const CloseBtn = styled.p`
+  position: absolute;
+  top: 200%;
+  transition: top 0.2s ease;
+
+  ${({ isActive }) => {
+    if (isActive) {
+      return `
+      top: 50%;
+      transform: translate(0, -50%);
+    `;
+    }
+  }}
+`;
+
+const HamTextContainer = ({ className, isActive }) => {
+  return (
+    <div className={className}>
+      <MenuBtn isActive={isActive}>Menu</MenuBtn>
+      <CloseBtn isActive={isActive}>Close</CloseBtn>
+    </div>
+  );
+};
+
+const StyledHamTextContainer = styled(HamTextContainer)`
+  position: relative;
+  height: 20px;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+`;
+
 const HamBtnContainer = ({ className }) => {
   const [isActive, setIsActive] = useState(false);
 
@@ -79,12 +127,9 @@ const HamBtnContainer = ({ className }) => {
   };
 
   return (
-    <div className={className}>
-      <p>
-        {/*If the hamburger button is active, it appears as Menu, else it appears as close*/}
-        Menu
-      </p>
-      <StyledHamburgerBtn toggleHamBtn={toggleHamBtn} isActive={isActive} />
+    <div className={className} onClick={() => toggleHamBtn(isActive)}>
+      <StyledHamTextContainer isActive={isActive} />
+      <StyledHamburgerBtn isActive={isActive} />
     </div>
   );
 };
