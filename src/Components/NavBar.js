@@ -19,6 +19,10 @@ const StyledDropDownContent = styled(DropDownContent)`
   align-items: center;
   gap: 30px;
   color: var(--clr-gainsboro);
+
+  & > li {
+    cursor: pointer;
+  }
 `;
 
 /* Mobile - Tablet Components */
