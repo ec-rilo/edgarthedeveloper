@@ -2,24 +2,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import device from '../assets/data/deviceSizes';
 
-const MenuContainer = ({ className }) => {
-  return (
-    <ul className={className}>
-      <li>work</li>
-      <li>about</li>
-      <li>contact</li>
-      <li>cv</li>
-    </ul>
-  );
-};
-
-const StyledMenuContainer = styled(MenuContainer)`
-  display: block;
-
-  @media ${device.tablet} {
-    display: none;
-  }
-`;
+/* Mobile - Tablet Components */
 
 const HamLayer = styled.div`
   background-color: var(--clr-gainsboro);
@@ -140,6 +123,27 @@ const StyledHamBtnContainer = styled(HamBtnContainer)`
   color: var(--clr-gainsboro);
   align-items: center;
   cursor: pointer;
+`;
+
+/* Desktop and Larger Components */
+
+const MenuContainer = ({ className }) => {
+  return (
+    <ul className={className}>
+      <li>work</li>
+      <li>about</li>
+      <li>contact</li>
+      <li>cv</li>
+    </ul>
+  );
+};
+
+const StyledMenuContainer = styled(MenuContainer)`
+  display: block;
+
+  @media ${device.tablet} {
+    display: none;
+  }
 `;
 
 const Logo = ({ className }) => {
