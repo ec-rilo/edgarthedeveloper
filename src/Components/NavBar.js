@@ -258,7 +258,7 @@ const MenuContainer = ({ className }) => {
 const StyledMenuContainer = styled(MenuContainer)`
   display: block;
 
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     display: none;
   }
 `;
