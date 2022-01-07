@@ -1,5 +1,31 @@
 import { useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const fadeInFromLeft = keyframes`
+  0% {
+    opacity: 0;
+    left: -100px;
+  }
+
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+`;
+
+const TextAnimateImg = styled.img`
+  opacity: 1;
+  transition: opacity 0.2s;
+  cursor: pointer;
+
+  ${({ content, index }) => {
+    if (content[index].isActive === false) {
+      return `
+      opacity: .2;  
+    `;
+    }
+  }}
+`;
 
 const TextAnimateLi = styled.li`
   color: var(--clr-gainsboro);
@@ -43,4 +69,4 @@ const useTextAnimate = (data) => {
   return { setOneActive, setAllActive, content };
 };
 
-export { useTextAnimate, TextAnimateLi };
+export { useTextAnimate, TextAnimateLi, TextAnimateImg, fadeInFromLeft };
