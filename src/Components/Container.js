@@ -11,4 +11,8 @@ const Container = styled.div`
   }
 `;
 
-export default Container;
+const SubContainer = styled.div`
+  overflow: hidden;
+`;
+
+export { Container, SubContainer };
