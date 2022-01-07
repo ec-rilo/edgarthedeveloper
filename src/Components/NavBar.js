@@ -1,63 +1,29 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import device from '../assets/data/deviceSizes';
-
-const StyledItem = styled.li`
-  color: var(--clr-gainsboro);
-  transition: color 0.2s;
-
-  ${({ content, index }) => {
-    if (content[index].isActive === false) {
-      return `
-      color: var(--clr-gainsboro-light);  
-    `;
-    }
-  }}
-`;
+import { TextAnimateLi, useTextAnimate } from '../assets/Animate';
 
 const DropDownContent = ({ className }) => {
-  const [content, setContent] = useState([
+  const data = useTextAnimate([
     { name: 'WORK', isActive: true },
     { name: 'ABOUT', isActive: true },
     { name: 'CONTACT', isActive: true },
     { name: 'CV', isActive: true },
   ]);
 
-  const setOneActive = (name) => {
-    let contentCopy = [...content];
-
-    contentCopy.forEach((item, index, arr) => {
-      if (arr[index].name !== name) {
-        arr[index].isActive = false;
-      }
-    });
-
-    setContent(contentCopy);
-  };
-
-  const setAllActive = () => {
-    let contentCopy = [...content];
-
-    contentCopy.forEach((item, index, arr) => {
-      arr[index].isActive = true;
-    });
-
-    setContent(contentCopy);
-  };
-
   return (
     <ul className={className}>
-      {content.map((item, index) => {
+      {data.content.map((item, index) => {
         return (
-          <StyledItem
+          <TextAnimateLi
             key={index}
-            onMouseEnter={() => setOneActive(item.name)}
-            onMouseLeave={() => setAllActive()}
-            content={content}
+            onMouseEnter={() => data.setOneActive(item.name)}
+            onMouseLeave={() => data.setAllActive()}
+            content={data.content}
             index={index}
           >
             {item.name}
-          </StyledItem>
+          </TextAnimateLi>
         );
       })}
     </ul>
@@ -256,7 +222,9 @@ const MenuContainer = ({ className }) => {
 };
 
 const StyledMenuContainer = styled(MenuContainer)`
-  display: block;
+  display: flex;
+  gap: 60px;
+  color: var(--clr-gainsboro);
 
   @media ${device.laptop} {
     display: none;
