@@ -1,9 +1,5 @@
-import styled from 'styled-components';
 import StyledNav from '../Components/NavBar';
-
-const Container = styled.div`
-  padding: 0 20px;
-`;
+import Container from '../Components/Container';
 
 const Home = () => {
   return (
