@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const TextAnimateLi = styled.li`
   color: var(--clr-gainsboro);
   transition: color 0.2s;
+  cursor: pointer;
 
   ${({ content, index }) => {
     if (content[index].isActive === false) {
