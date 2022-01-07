@@ -227,11 +227,15 @@ const HamBtnContainer = ({ className, setHamIsActive }) => {
 };
 
 const StyledHamBtnContainer = styled(HamBtnContainer)`
-  display: flex;
-  gap: 20px;
-  color: var(--clr-gainsboro);
-  align-items: center;
-  cursor: pointer;
+  display: none;
+
+  @media ${device.laptop} {
+    display: flex;
+    gap: 20px;
+    color: var(--clr-gainsboro);
+    align-items: center;
+    cursor: pointer;
+  }
 `;
 
 /* Desktop and Larger Components */
