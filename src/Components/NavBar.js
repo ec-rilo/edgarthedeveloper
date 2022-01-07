@@ -65,6 +65,8 @@ const StyledDropDownMenu = styled(DropDownMenu)`
     z-index: -1;
     top: -100%;
     transition: top 0.3s ease-in-out;
+    background-color: var(--clr-onyx);
+    font-family: var(--fnt-regular);
 
     ${({ hamIsActive }) => {
       if (hamIsActive) {
@@ -273,15 +275,12 @@ const StyledLogo = styled(Logo)`
 
 /* Nav Container */
 
-const Nav = ({ className }) => {
-  const [hamIsActive, setHamIsActive] = useState(false);
-
+const Nav = ({ className, setHamIsActive }) => {
   return (
     <nav className={className}>
       <StyledLogo />
       <StyledMenuContainer />
       <StyledHamBtnContainer setHamIsActive={setHamIsActive} />
-      <StyledDropDownMenu hamIsActive={hamIsActive} />
     </nav>
   );
 };
@@ -296,4 +295,24 @@ const StyledNav = styled(Nav)`
   background-color: var(--clr-onyx);
   z-index: auto;
 `;
-export default StyledNav;
+
+const NavContainer = ({ className }) => {
+  const [hamIsActive, setHamIsActive] = useState(false);
+
+  return (
+    <div className={className}>
+      <StyledNav setHamIsActive={setHamIsActive} />
+      <StyledDropDownMenu hamIsActive={hamIsActive} />
+    </div>
+  );
+};
+
+const StyledNavContainer = styled(NavContainer)`
+  position: relative;
+  display: block;
+  background-color: red;
+  width: 100%;
+  z-index: 9999;
+`;
+
+export default StyledNavContainer;
