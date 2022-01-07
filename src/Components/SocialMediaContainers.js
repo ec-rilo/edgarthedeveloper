@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { TextAnimateImg, useTextAnimate } from '../assets/Animate';
 import githubIcon from '../assets/images/icons/GitHub-Mark/PNG/github-icon.png';
 import linkedinIcon from '../assets/images/icons/linkedin-icon.png';
 import devIcon from '../assets/images/icons/dev-icon.png';
@@ -11,10 +12,18 @@ const StyledLine = styled.div`
   min-width: 80px;
 `;
 
-const Icon = ({ className, src, alt, hyperLink }) => {
+const Icon = (props) => {
   return (
-    <a href={hyperLink} target={'_blank'} rel="noopener noreferrer">
-      <img className={className} src={src} alt={alt} />
+    <a href={props.hyperLink} target={'_blank'} rel="noopener noreferrer">
+      <TextAnimateImg
+        className={props.className}
+        src={props.src}
+        alt={props.alt}
+        onMouseEnter={props.onMouseEnter}
+        onMouseLeave={props.onMouseLeave}
+        content={props.content}
+        index={props.index}
+      />
     </a>
   );
 };
@@ -36,24 +45,43 @@ const StyledIcon = styled(Icon)`
 `;
 
 const IconContainer = ({ className }) => {
+  const data = useTextAnimate([
+    {
+      name: 'Github',
+      isActive: true,
+      hyperLink: 'https://github.com/ec-rilo',
+      src: githubIcon,
+    },
+    {
+      name: 'Linkedin',
+      isActive: true,
+      hyperLink: 'https://www.linkedin.com/in/ecarrillo046/',
+      src: linkedinIcon,
+    },
+    {
+      name: 'dev.to',
+      isActive: true,
+      hyperLink: 'https://dev.to/ec_rilo',
+      src: devIcon,
+    },
+  ]);
+
   return (
     <div className={className}>
-      <StyledIcon
-        src={githubIcon}
-        alt="Github"
-        hyperLink={'https://github.com/ec-rilo'}
-      ></StyledIcon>
-      <StyledIcon
-        src={linkedinIcon}
-        alt="Linkedin"
-        hyperLink={'https://www.linkedin.com/in/ecarrillo046/'}
-      ></StyledIcon>
-      <StyledIcon
-        src={devIcon}
-        alt="Dev.to"
-        hyperLink={'https://dev.to/ec_rilo'}
-        target={'_blank'}
-      ></StyledIcon>
+      {data.content.map((item, index) => {
+        return (
+          <StyledIcon
+            key={index}
+            src={item.src}
+            alt={item.name}
+            hyperLink={item.hyperLink}
+            onMouseEnter={() => data.setOneActive(item.name)}
+            onMouseLeave={() => data.setAllActive()}
+            content={data.content}
+            index={index}
+          />
+        );
+      })}
     </div>
   );
 };
