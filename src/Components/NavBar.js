@@ -211,12 +211,28 @@ const StyledHamBtnContainer = styled(HamBtnContainer)`
 /* Desktop and Larger Components */
 
 const MenuContainer = ({ className }) => {
+  const data = useTextAnimate([
+    { name: 'work', isActive: true },
+    { name: 'about', isActive: true },
+    { name: 'contact', isActive: true },
+    { name: 'cv', isActive: true },
+  ]);
+
   return (
     <ul className={className}>
-      <li>work</li>
-      <li>about</li>
-      <li>contact</li>
-      <li>cv</li>
+      {data.content.map((item, index) => {
+        return (
+          <TextAnimateLi
+            key={index}
+            onMouseEnter={() => data.setOneActive(item.name)}
+            onMouseLeave={() => data.setAllActive()}
+            content={data.content}
+            index={index}
+          >
+            {item.name}
+          </TextAnimateLi>
+        );
+      })}
     </ul>
   );
 };
