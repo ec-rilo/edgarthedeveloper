@@ -1,5 +1,9 @@
 import styled, { css } from 'styled-components';
-import { TextAnimateImg, useTextAnimate } from '../assets/Animate';
+import {
+  fadeInFromLeft,
+  TextAnimateImg,
+  useTextAnimate,
+} from '../assets/Animate';
 import githubIcon from '../assets/images/icons/GitHub-Mark/PNG/github-icon.png';
 import linkedinIcon from '../assets/images/icons/linkedin-icon.png';
 import devIcon from '../assets/images/icons/dev-icon.png';
@@ -120,11 +124,13 @@ const SocialMediaContainer1 = ({ className }) => {
 };
 
 const StyledSocialMediaContainer1 = styled(SocialMediaContainer1)`
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   max-width: 700px;
+  animation: ${fadeInFromLeft} 1s;
 
   @media ${device.tablet} {
     max-width: 400px;
