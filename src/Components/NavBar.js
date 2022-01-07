@@ -86,28 +86,32 @@ const DropDownMenu = ({ className, hamIsActive }) => {
 };
 
 const StyledDropDownMenu = styled(DropDownMenu)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: absolute;
-  width: 100%;
-  padding-bottom: 20px;
-  top: 100%;
-  z-index: -1;
-  top: -100%;
-  transition: top 0.3s ease-in-out;
+  display: none;
 
-  ${({ hamIsActive }) => {
-    if (hamIsActive) {
-      return `
+  @media ${device.laptop} {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    padding-bottom: 20px;
+    top: 100%;
+    z-index: -1;
+    top: -100%;
+    transition: top 0.3s ease-in-out;
+
+    ${({ hamIsActive }) => {
+      if (hamIsActive) {
+        return `
         top: 100%;
       `;
-    } else {
-      return `
+      } else {
+        return `
         top: -100%;
       `;
-    }
-  }}
+      }
+    }}
+  }
 `;
 
 const HamLayer = styled.div`
@@ -282,6 +286,8 @@ const StyledLogo = styled(Logo)`
     height: 30px;
   }
 `;
+
+/* Nav Container */
 
 const Nav = ({ className }) => {
   const [hamIsActive, setHamIsActive] = useState(false);
