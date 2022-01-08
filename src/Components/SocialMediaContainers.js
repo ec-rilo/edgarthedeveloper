@@ -34,8 +34,8 @@ const Icon = (props) => {
 
 const StyledIcon = styled(Icon)`
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
 
   @media ${device.tablet} {
     height: 30px;
@@ -110,6 +110,10 @@ const StyledSubContainer = styled.div`
   display: flex;
   align-items: center;
   width: 1000px;
+
+  @media ${device.laptop} {
+    width: 650px;
+  }
 `;
 
 const SocialMediaContainer1 = ({ className }) => {
