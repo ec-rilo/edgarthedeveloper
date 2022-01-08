@@ -12,14 +12,14 @@ const DynamicTitle = styled.p`
   ${textCarouselLogic}
   color: var(--clr-gainsboro);
   width: 100%;
-  font-size: 2rem;
+  font-size: 2.5rem;
+
+  @media ${device.laptopL} {
+    font-size: 2rem;
+  }
 
   @media ${device.tablet} {
     font-size: 1.5rem;
-  }
-
-  @media ${device.mobileM} {
-    font-size: 1.3rem;
   }
 `;
 
@@ -69,6 +69,9 @@ const StyledDynamicTitleContainer = styled(DynamicTitleContainer)`
   width: 300px;
   height: 50px;
 
+  width: 450px;
+  height: 60px;
+
   @media ${device.tablet} {
     width: 220px;
     height: 30px;
@@ -77,7 +80,11 @@ const StyledDynamicTitleContainer = styled(DynamicTitleContainer)`
 
 const StyledTitle = styled.h1`
   font-family: var(--fnt-bld);
-  font-size: 5rem;
+  font-size: 7rem;
+
+  @media ${device.laptopL} {
+    font-size: 5rem;
+  }
 
   @media ${device.tablet} {
     font-size: 4rem;
