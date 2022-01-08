@@ -55,6 +55,7 @@ const textCarouselLogic = ({ data }) => {
     `;
   } else if (data.isExiting === true) {
     return css`
+      opacity: 0;
       animation: ${carouselAnimExiting} 1s forwards;
     `;
   }
@@ -88,6 +89,13 @@ const useTextCarousel = (data) => {
               contentCopy[j].isExiting === true
             ) {
               contentCopy[j].isExiting = false;
+            }
+
+            if (
+              contentCopy[j].isEntering === false &&
+              contentCopy[j].isExiting === false
+            ) {
+              contentCopy[j].isInitial = true;
             }
           }
           break;
