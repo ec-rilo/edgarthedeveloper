@@ -141,9 +141,18 @@ const StyledSocialMediaContainer1 = styled(SocialMediaContainer1)`
   }
 
   ${(props) =>
+    props.spaced &&
+    css`
+      margin: 50px 0;
+    `}
+
+  ${(props) =>
     props.homepage &&
     css`
-      margin-top: 50px;
+      margin-top: 0;
+      @media ${device.laptop} {
+        margin-top: 50px;
+      }
     `}
 `;
 
