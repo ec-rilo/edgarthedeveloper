@@ -1,6 +1,6 @@
-import StyledNavContainer from '../Components/NavBar';
-import { Container, SubContainer } from '../Components/Container';
-import StyledIntroContainer from '../Components/Intro';
+import StyledNavContainer from '../components/NavBar';
+import { Container, SubContainer } from '../components/Container';
+import StyledIntroContainer from '../components/Intro';
 
 const HomePage = () => {
   return (
