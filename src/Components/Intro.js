@@ -144,6 +144,7 @@ const IntroContainer = ({ className }) => {
       <StyledTextContainer />
       <div style={{ flex: '1' }}>
         <StyledVertImgContainer
+          animated
           src={imgSrc}
           alt="Person walking in long grass, only rear of person is seen"
         />
