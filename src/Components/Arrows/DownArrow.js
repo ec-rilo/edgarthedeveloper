@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import device from '../../assets/data/deviceSizes';
 import arrowHeadSrc from './down-arrow-head.png';
 
 const ArrowBody = styled.div`
@@ -32,10 +33,15 @@ const StyledDownArrow = styled(DownArrow)`
   align-items: center;
 `;
 
+const Text = styled.p`
+  font-family: var(--fnt-bld);
+  @media ${device.tablet};
+`;
+
 const DownArrowContainer = ({ className }) => {
   return (
     <div className={className}>
-      <p>Scroll Down</p>
+      <Text>Scroll Down</Text>
       <StyledDownArrow />
     </div>
   );
