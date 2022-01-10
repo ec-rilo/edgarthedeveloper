@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import { StyledWord, StyledParagraph } from './Paragraph';
 import {
   textCarouselStyles,
   useTextCarousel,
@@ -6,6 +7,11 @@ import {
   textCarouselContainerStyles,
 } from '../assets/Animate';
 import device from '../assets/data/deviceSizes';
+import { StyledArticle } from './Article';
+import imgSrc from '../assets/images/decorative/person-in-the-woods.jpeg';
+import { StyledVertImgContainer } from './Img';
+import { StyledSocialMediaContainer1 } from './SocialMediaContainers';
+import { StyledDownArrowContainer } from './Arrows/DownArrow';
 
 const DynamicTitle = styled.p`
   ${textCarouselStyles}
@@ -99,29 +105,49 @@ const StyledTitle = styled.h1`
   }
 `;
 
+const TextContainer = ({ className }) => {
+  return (
+    <section className={className}>
+      <StyledSocialMediaContainer1 homepage spaced />
+      <StyledDynamicTitleContainer />
+      <StyledTitle>Edgar Carrillo</StyledTitle>
+      <StyledArticle>
+        <StyledParagraph>
+          Hey there! My name is Edgar. I’m a Humboldt County, CA based{' '}
+          <StyledWord>Front End Developer</StyledWord>.
+        </StyledParagraph>
+        <StyledParagraph>
+          I've had a passion for solving problems and design since I was young
+          and when I started tinkering with html / css I was interested, once I
+          jumped into the logic side I was hooked.
+        </StyledParagraph>
+      </StyledArticle>
+      <StyledDownArrowContainer />
+    </section>
+  );
+};
+
+const StyledTextContainer = styled(TextContainer)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 50px;
+  flex: 1;
+  @media ${device.tablet} {
+    margin-left: 0;
+  }
+`;
+
 const IntroContainer = ({ className }) => {
   return (
     <section className={className}>
-      <StyledDynamicTitleContainer />
-      <StyledTitle>Edgar Carrillo</StyledTitle>
-      {/* <article>
-        <p>
-          Hey there! My name is Edgar. I’m a Humboldt County, CA based Front End
-          Developer. I’m currently studying web development and design.
-        </p>
-        <p>
-          Through the projects I created that required me to use a variety of
-          different technologies and layouts I have been able to continously
-          raise my standards for what’s exected of any web application.{' '}
-        </p>
-      </article>
-      <div>
-        <p>Scroll Down</p>
-        <div>
-          <div>Arrow body</div>
-          <img src="#" alt="arrow img" />
-        </div>
-      </div> */}
+      <StyledTextContainer />
+      <div style={{ flex: '1' }}>
+        <StyledVertImgContainer
+          src={imgSrc}
+          alt="Person walking in long grass, only rear of person is seen"
+        />
+      </div>
     </section>
   );
 };
@@ -129,16 +155,16 @@ const IntroContainer = ({ className }) => {
 const StyledIntroContainer = styled(IntroContainer)`
   font-family: var(--fnt-regular);
   color: var(--clr-gainsboro);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 900px;
 
-  ${(props) =>
-    props.homepage &&
-    css`
-      margin-top: 50px;
-      margin-left: 50px;
-      @media ${device.tablet} {
-        margin-left: 0;
-      }
-    `}
+  @media ${device.laptop} {
+    height: initial;
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export default StyledIntroContainer;
