@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { fadeIn } from '../assets/Animate';
 import device from '../assets/data/deviceSizes';
 
 const StyledImg = styled.img`
@@ -19,6 +20,12 @@ const VertImg = ({ className, src, alt }) => {
 const StyledVertImgContainer = styled(VertImg)`
   display: block;
   height: 100%;
+
+  ${(props) =>
+    props.animated &&
+    css`
+      animation: ${fadeIn} 1s;
+    `}
 
   @media ${device.laptop} {
     margin: 50px 0;
