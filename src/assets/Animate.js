@@ -13,6 +13,16 @@ const fadeInFromLeft = keyframes`
   }
 `;
 
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+`;
+
 /* Text Carousel Hook, Styles, and animations */
 const carouselAnimEntering = keyframes`
   0% {
@@ -176,4 +186,5 @@ export {
   useTextCarousel,
   textCarouselLogic,
   textCarouselContainerStyles,
+  fadeIn,
 };
