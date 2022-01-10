@@ -1,6 +1,5 @@
 import StyledNavContainer from '../Components/NavBar';
 import { Container, SubContainer } from '../Components/Container';
-import { StyledSocialMediaContainer1 } from '../Components/SocialMediaContainers';
 import StyledIntroContainer from '../Components/Intro';
 
 const Home = () => {
@@ -9,8 +8,7 @@ const Home = () => {
       <Container>
         <SubContainer>
           <StyledNavContainer />
-          <StyledSocialMediaContainer1 homepage />
-          <StyledIntroContainer homepage />
+          <StyledIntroContainer />
         </SubContainer>
       </Container>
     </div>
