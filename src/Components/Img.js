@@ -18,8 +18,6 @@ const VertImg = ({ className, src, alt }) => {
 
 const StyledVertImgContainer = styled(VertImg)`
   display: block;
-
-  background-color: red;
   height: 100%;
 
   @media ${device.laptop} {
