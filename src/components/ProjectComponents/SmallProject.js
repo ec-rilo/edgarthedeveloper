@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import StyledProjectImg from '../ProjectImg';
+import StyledProjectImg from './ProjectImg';
 import CategoryTitle from '../CategoryTitle';
-import ProjectTitle from '../ProjectTitle';
+import ProjectTitle from './ProjectTitle';
 import { StyledParagraph } from '../Paragraph';
 import device from '../../assets/data/deviceSizes';
 import StyledEmphasisText from '../EmphasisText';
