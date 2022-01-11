@@ -27,7 +27,7 @@ const StyledVertImgContainer = styled(VertImg)`
       animation: ${fadeIn} 1s;
     `}
 
-  @media ${device.laptop} {
+  @media ${device.tablet} {
     margin: 50px 0;
     height: 300px;
     max-width: 1440px;
