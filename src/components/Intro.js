@@ -179,7 +179,7 @@ const IntroMasterContainer = ({ className }) => {
 const StyledIntroMasterContainer = styled(IntroMasterContainer)`
   height: calc(100vh - 100px);
 
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     height: initial;
   }
 `;
