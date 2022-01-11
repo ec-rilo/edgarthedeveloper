@@ -164,7 +164,7 @@ const StyledIntroContainer = styled(IntroContainer)`
   flex-direction: row;
   height: 900px;
 
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     height: initial;
     flex-direction: column;
     justify-content: center;
