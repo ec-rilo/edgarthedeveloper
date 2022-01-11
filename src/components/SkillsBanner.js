@@ -42,13 +42,14 @@ const StyledSkillsBanner = styled(SkillsBanner)`
   flex-direction: row;
   flex-wrap: wrap;
   gap: 20px;
-  margin: 50px 0;
+  margin: 100px 0;
 
   height: 100px;
 
   @media ${device.mobileL} {
     height: initial;
     flex-direction: column;
+    margin: 50px 0;
   }
 `;
 
