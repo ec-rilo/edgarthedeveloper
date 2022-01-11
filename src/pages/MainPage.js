@@ -1,10 +1,15 @@
+import { Container } from '../components/Container';
 import HomePage from './HomePage';
+import StyledSkillsPage from './SkillsPage';
 
 const MainPage = () => {
   return (
-    <article>
-      <HomePage />
-    </article>
+    <Container>
+      <article>
+        <HomePage />
+        <StyledSkillsPage />
+      </article>
+    </Container>
   );
 };
 
