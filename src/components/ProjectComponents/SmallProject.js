@@ -50,7 +50,7 @@ const SmallProject = ({
 }) => {
   return (
     <article className={className}>
-      <StyledProjectImg src={src} alt={alt} canHover={canHover} />
+      <StyledProjectImg src={src} alt={alt} />
       <ContentContainer important={important}>
         <StyledTitleContainer category={category} title={title} />
         <StyledParagraph regular>{textContent}</StyledParagraph>
@@ -66,12 +66,19 @@ const StyledSmallProject = styled(SmallProject)`
   flex: 1 0 35%;
   margin: 20px 0;
   width: 900px;
+  pointer-events: none;
 
   @media ${device.laptop} {
     width: initial;
     max-width: 1024px;
     margin: 50px 0;
   }
+
+  ${(props) =>
+    props.canHover &&
+    css`
+      pointer-events: auto;
+    `}
 `;
 
 export default StyledSmallProject;
