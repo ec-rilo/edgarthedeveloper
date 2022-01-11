@@ -46,10 +46,11 @@ const SmallProject = ({
   title,
   textContent,
   important,
+  canHover,
 }) => {
   return (
     <article className={className}>
-      <StyledProjectImg src={src} alt={alt} />
+      <StyledProjectImg src={src} alt={alt} canHover={canHover} />
       <ContentContainer important={important}>
         <StyledTitleContainer category={category} title={title} />
         <StyledParagraph regular>{textContent}</StyledParagraph>
