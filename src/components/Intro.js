@@ -87,7 +87,7 @@ const StyledDynamicTitleContainer = styled(DynamicTitleContainer)`
 
 const StyledTitle = styled.h1`
   font-family: var(--fnt-bld);
-  font-size: 7rem;
+  font-size: 6.5rem;
 
   @media ${device.laptopL} {
     font-size: 5rem;
@@ -106,10 +106,9 @@ const StyledTitle = styled.h1`
   }
 `;
 
-const TextContainer = ({ className }) => {
+const ContentContainer = ({ className }) => {
   return (
-    <section className={className}>
-      <StyledSocialMediaContainer1 homepage spaced />
+    <div className={className}>
       <StyledDynamicTitleContainer />
       <StyledTitle>Edgar Carrillo</StyledTitle>
       <StyledArticle>
@@ -126,6 +125,23 @@ const TextContainer = ({ className }) => {
       <ScrollLink to="skills-page" smooth={true} duration={1000}>
         <StyledDownArrowContainer />
       </ScrollLink>
+    </div>
+  );
+};
+
+const StyledContentContainer = styled(ContentContainer)`
+  margin-left: 50px;
+
+  @media ${device.tablet} {
+    margin-left: 0;
+  }
+`;
+
+const TextContainer = ({ className }) => {
+  return (
+    <section className={className}>
+      <StyledSocialMediaContainer1 homepage spaced />
+      <StyledContentContainer />
     </section>
   );
 };
@@ -134,11 +150,7 @@ const StyledTextContainer = styled(TextContainer)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 50px;
   flex: 1;
-  @media ${device.tablet} {
-    margin-left: 0;
-  }
 `;
 
 const IntroContainer = ({ className }) => {
