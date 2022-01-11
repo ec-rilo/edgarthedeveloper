@@ -8,6 +8,11 @@
   src: url('./assets/fonts/Lato/Lato-Bold.ttf');
 }
 
+@font-face {
+  font-family: 'Lato-Black';
+  src: url('./assets/fonts/Lato/Lato-Black.ttf');
+}
+
 :root {
   /* Colors */
   --clr-onyx: #101010;
@@ -18,6 +23,7 @@
   /* Fonts */
   --fnt-regular: 'Lato-Regular';
   --fnt-bld: 'Lato-Bold';
+  --fnt-dark: 'Lato-Black';
 }
 
 body {
