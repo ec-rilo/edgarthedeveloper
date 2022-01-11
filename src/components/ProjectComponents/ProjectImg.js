@@ -81,7 +81,7 @@ const StyledSelectedImgOverlay = styled(SelectedImgOverlay)`
   height: 100%;
 `;
 
-const ProjectImg = ({ className, src, alt, canHover }) => {
+const ProjectImg = ({ className, src, alt }) => {
   return (
     <div className={className}>
       <StyledSelectedImgOverlay />
@@ -95,13 +95,6 @@ const StyledProjectImg = styled(ProjectImg)`
   background-color: var(--clr-gainsboro);
   height: 400px;
   cursor: pointer;
-  pointer-events: none;
-
-  ${(props) =>
-    props.canHover &&
-    css`
-      pointer-events: auto;
-    `}
 
   @media ${device.laptop} {
     height: 250px;
