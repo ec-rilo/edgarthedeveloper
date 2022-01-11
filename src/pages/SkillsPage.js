@@ -8,7 +8,7 @@ import StyledSkillsBanner from '../components/SkillsBanner';
 const SkillsPage = ({ className }) => {
   return (
     <SubContainer>
-      <article className={className}>
+      <article className={className} id="skills-page">
         <PageTitle>My Skills</PageTitle>
         <StyledArticle>
           <StyledParagraph>
