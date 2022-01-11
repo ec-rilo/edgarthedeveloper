@@ -168,4 +168,20 @@ const StyledIntroContainer = styled(IntroContainer)`
   }
 `;
 
-export default StyledIntroContainer;
+const IntroMasterContainer = ({ className }) => {
+  return (
+    <div className={className}>
+      <StyledIntroContainer />
+    </div>
+  );
+};
+
+const StyledIntroMasterContainer = styled(IntroMasterContainer)`
+  height: calc(100vh - 100px);
+
+  @media ${device.tablet} {
+    height: initial;
+  }
+`;
+
+export default StyledIntroMasterContainer;
