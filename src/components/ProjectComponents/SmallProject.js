@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import StyledProjectImg from './ProjectImg';
 import CategoryTitle from '../CategoryTitle';
 import ProjectTitle from './ProjectTitle';
@@ -22,6 +22,22 @@ const StyledTitleContainer = styled(TitleContainer)`
   gap: 5px;
 `;
 
+const ContentContainer = styled.div`
+  ${(props) =>
+    props.important &&
+    css`
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      @media ${device.laptop} {
+        display: block;
+        text-align: initial;
+      }
+    `}
+`;
+
 const SmallProject = ({
   className,
   src,
@@ -29,13 +45,18 @@ const SmallProject = ({
   category,
   title,
   textContent,
+  important,
 }) => {
   return (
     <article className={className}>
       <StyledProjectImg src={src} alt={alt} />
-      <StyledTitleContainer category={category} title={title} />
-      <StyledParagraph regular>{textContent}</StyledParagraph>
-      <StyledEmphasisText>View Details</StyledEmphasisText>
+      <ContentContainer important={important}>
+        <StyledTitleContainer category={category} title={title} />
+        <StyledParagraph regular>{textContent}</StyledParagraph>
+        <StyledEmphasisText>
+          {important === true ? 'Coming Soon' : 'View Details'}
+        </StyledEmphasisText>
+      </ContentContainer>
     </article>
   );
 };
