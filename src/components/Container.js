@@ -13,6 +13,7 @@ const Container = styled.div`
 
 const SubContainer = styled.div`
   overflow: hidden;
+  max-height: 1000px;
 `;
 
 export { Container, SubContainer };
