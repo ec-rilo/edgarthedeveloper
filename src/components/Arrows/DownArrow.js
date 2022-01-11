@@ -34,7 +34,7 @@ const StyledDownArrow = styled(DownArrow)`
 `;
 
 const Text = styled.p`
-  font-family: var(--fnt-bld);
+  font-family: var(--fnt-dark);
   @media ${device.tablet};
 `;
 
