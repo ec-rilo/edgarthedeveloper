@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import device from '../../assets/data/deviceSizes';
 import StyledRightArrow from '../Arrows/RightArrow';
 
@@ -81,11 +81,7 @@ const StyledSelectedImgOverlay = styled(SelectedImgOverlay)`
   height: 100%;
 `;
 
-const ProjectImg = ({ className, src, alt }) => {
-  // when mouse hovers over the image
-
-  // a dark overlay appears over the image with View Project on the overlay
-
+const ProjectImg = ({ className, src, alt, canHover }) => {
   return (
     <div className={className}>
       <StyledSelectedImgOverlay />
@@ -99,6 +95,13 @@ const StyledProjectImg = styled(ProjectImg)`
   background-color: var(--clr-gainsboro);
   height: 400px;
   cursor: pointer;
+  pointer-events: none;
+
+  ${(props) =>
+    props.canHover &&
+    css`
+      pointer-events: auto;
+    `}
 
   @media ${device.laptop} {
     height: 250px;
