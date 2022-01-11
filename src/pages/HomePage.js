@@ -1,6 +1,6 @@
 import StyledNavContainer from '../components/NavBar';
 import { Container, SubContainer } from '../components/Container';
-import StyledIntroContainer from '../components/Intro';
+import StyledIntroMasterContainer from '../components/Intro';
 
 const HomePage = () => {
   return (
@@ -8,7 +8,7 @@ const HomePage = () => {
       <Container>
         <SubContainer>
           <StyledNavContainer />
-          <StyledIntroContainer />
+          <StyledIntroMasterContainer />
         </SubContainer>
       </Container>
     </section>
