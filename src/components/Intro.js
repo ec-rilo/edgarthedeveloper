@@ -12,6 +12,7 @@ import imgSrc from '../assets/images/decorative/person-in-the-woods.jpeg';
 import { StyledVertImgContainer } from './Img';
 import { StyledSocialMediaContainer1 } from './SocialMediaContainers';
 import { StyledDownArrowContainer } from './Arrows/DownArrow';
+import { Link as ScrollLink } from 'react-scroll';
 
 const DynamicTitle = styled.p`
   ${textCarouselStyles}
@@ -122,7 +123,9 @@ const TextContainer = ({ className }) => {
           jumped into the logic side I was hooked.
         </StyledParagraph>
       </StyledArticle>
-      <StyledDownArrowContainer />
+      <ScrollLink to="skills-page" smooth={true} duration={1000}>
+        <StyledDownArrowContainer />
+      </ScrollLink>
     </section>
   );
 };
